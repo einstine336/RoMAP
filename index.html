@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Beyond Ideal Geometry: RoMAP</title>
+
+	<link rel="stylesheet" type="text/css" href="layout.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+
+		h1 {
+			font-size: 200%;
+			text-align: center;
+		}
+
+		h2 {
+			font-size: 150%;
+			text-align: center;
+		}
+
+		h3 {
+			font-size: 100%;
+			text-align: center;
+		}
+
+		.center-justified {
+			text-align: justify;
+			margin: 0 auto;
+			width: 1000px;
+		}
+
+		.center {
+			text-align: center;
+		}
+
+	/* NAVIGATION */
+	nav {
+		width: 100%;
+		margin: 0 auto;
+		background: #fff;
+	}
+
+	/* By Dominik Biedebach @domobch */
+	nav ul {
+		list-style: none;
+		text-align: center;
+	}
+	nav ul li {
+		display: inline-block;
+	}
+	nav ul li a {
+		display: block;
+		padding: 0px;
+		text-decoration: none;
+		color: #aaa;
+		font-weight: 800;
+		margin: 0 10px;
+	}
+	nav ul li a,
+	nav ul li a:after,
+	nav ul li a:before {
+		transition: all .5s;
+	}
+	nav ul li a:hover {
+		color: #555;
+	}
+
+	/* stroke */
+	nav.stroke ul li a,
+	nav.fill ul li a {
+		position: relative;
+	}
+	nav.stroke ul li a:after,
+	nav.fill ul li a:after {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 0%;
+		content: '.';
+		color: transparent;
+		background: #333;
+		height: 1px;
+	}
+	nav.stroke ul li a:hover:after {
+		width: 100%;
+	}
+
+    .data-table {
+        border-collapse: collapse;
+    }
+    .border-top {
+        border-top: 1px solid #000;
+    }
+    .border-bottom {
+        border-bottom: 1px solid #000;
+    }
+    .border-left {
+        border-left: 1px solid #000;
+    }
+    .border-right {
+        border-right: 1px solid #000;
+    }
+
+    .romap {
+        color: #1a6eb5;
+        font-weight: bold;
+    }
+
+    /* 2x2 grid for real-world cases */
+    .fig-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .case-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .talk-img {
+        width: 62%;
+        max-height: 110px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto 6px;
+    }
+    .case-col video {
+        width: 100%;
+        display: block;
+        background: #000;
+        border-radius: 6px;
+    }
+    .fig-cell-caption {
+        padding: 9px 4px 0;
+        font-size: 12.5px;
+        color: #555;
+        line-height: 1.5;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Authors block */
+    .authors-block {
+        text-align: center;
+        margin: 10px auto 6px;
+        font-size: 15px;
+        line-height: 2;
+    }
+    .authors-block .author-name {
+        display: inline;
+    }
+    .authors-block sup {
+        font-size: 10px;
+        color: #555;
+    }
+    .affiliations-block {
+        text-align: center;
+        margin: 4px auto 18px;
+        font-size: 13px;
+        color: #444;
+        line-height: 1.7;
+    }
+    .affiliations-block .affil-line {
+        display: block;
+    }
+    .affiliations-block sup {
+        font-size: 10px;
+    }
+    .author-emails {
+        text-align: center;
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 8px;
+    }
+
+    /* HANDAL table */
+    .handal-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+    }
+    .handal-table {
+        border-collapse: collapse;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+    }
+    .handal-table th,
+    .handal-table td {
+        padding: 5px 6px;
+        white-space: nowrap;
+    }
+    .handal-table thead tr.top-border th {
+        border-top: 2px solid #000;
+    }
+    .handal-table thead tr.header-sep th {
+        border-bottom: 1px solid #000;
+    }
+    .handal-table .group-sep td,
+    .handal-table .group-sep th {
+        border-top: 1px solid #000;
+    }
+    .handal-table tfoot tr.bottom-border td {
+        border-bottom: 2px solid #000;
+    }
+    .handal-table .ours-row td {
+        font-weight: bold;
+        background: #f0f4fa;
+    }
+    .handal-table .cat-header {
+        font-weight: bold;
+    }
+    .handal-table .section-label {
+        border-bottom: 1px solid #ccc;
+    }
+    .handal-caption {
+        font-size: inherit;
+        color: inherit;
+        margin-top: 10px;
+        line-height: inherit;
+        text-align: justify;
+    }
+</style>
+
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+
+<body>
+	<div class="center-justified" style="width:1000px;">
+		<h1>Beyond Ideal Geometry: Structure-Aware Stabilization and Completion for Robust Multimodal Affordance Prediction</h1>
+	</div>
+
+	<!-- Authors -->
+	<div class="center-justified" style="width:1000px;">
+		<h3><strong>Long Tian<sup>1</sup>, Yucheng Liu<sup>1</sup>, Yang Liu<sup>1</sup>, Weide Liu<sup>2</sup>, Ping Hu<sup>3</sup>, Yuming Fang<sup>2</sup>, and <strong>Fengmao Lv<sup>1*</sup></strong></strong></h3>
+		<h3><sup>1</sup> School of Computing and Artificial Intelligence, Southwest Jiaotong University, Chengdu 611756, Sichuan, China</h3>
+		<h3><sup>2</sup> School of Computing and Artificial Intelligence, Jiangxi University of Finance and Economics, Nanchang 330013, China</h3>
+		<h3><sup>3</sup> School of Computer Science and Engineering, University of Electronic Science and Technology of China, Chengdu 610000, China</h3>
+	</div>
+
+	<div class="center-justified">
+		<p>
+			<b>ABSTRACT:</b> Affordance understanding is essential for enabling intelligent agents to interact with objects in real-world environments. However, existing methods rely on high-quality 3D observations or assume homogeneous input modalities, limiting their applicability when inputs are heterogeneous and 3D geometry is degraded by noise, sparsity, and occlusion. In this work, we propose <span class="romap">RoMAP</span>, a multi-modal affordance prediction framework that unifies RGB images and 3D point clouds for reliable language-guided affordance reasoning under degraded observations. Specifically, we introduce a mask-guided 3D Gaussian splatting module that reconstructs geometry-consistent object-centric representations from RGB observations, enabling cross-modal geometric perception. Furthermore, we propose two complementary degradation-aware modules: adaptive noise filtering and sparse point enhancement, which improve representation stability against noisy and sparse point clouds. Finally, a language-guided decoder is designed to establish fine-grained semantic-geometry alignment for affordance grounding conditioned on textual queries. Experiments on multiple benchmarks show that <span class="romap">RoMAP</span> outperforms existing methods under both clean and degraded conditions, with consistent gains in affordance localization accuracy across diverse input modalities.
+		</p>
+
+		<br>
+		<br>
+
+
+		<h2 style="text-align: left;">Motivation</h2>
+		<div style="text-align: center;">
+			<img width=1000 src="figure/motivation.png" alt="RoMAP Motivation">
+		</div>
+		<p>
+			(a) While existing cross-modal methods leverage 2D interactive cues (e.g., a grasping hand) to infer semantic intent, they struggle to establish strict semantic-geometric alignment, yielding diffuse predictions rather than precise 3D localization. (b) Similarly, conventional language-guided 3D methods rely on high-quality geometry and fail on noisy or sparse data. (c) Our <span class="romap">RoMAP</span> framework flexibly handles multimodal inputs, including 3D point cloud (Option A), multi-view RGB image (Option B) and language instructions. By addressing noise and sparsity via the ANF and SPE modules, it achieves robust and precise affordance grounding.
+		</p>
+
+		<br>
+		<br>
+
+
+		<h2 style="text-align: left;">Method Overview</h2>
+		<div style="text-align: center;">
+			<img width=1000 src="figure/framework.png" alt="RoMAP Framework">
+		</div>
+		<p>
+			The model takes multimodal visual inputs and natural language queries to predict 3D functional affordances. (Top) For 2D image inputs (Option A), a Mask-Guided 3D Gaussian Splatting module segments the target object from the background to reconstruct clean, object-centric point clouds. (Middle) The reconstructed representations (Option A) or native 3D point clouds (Option B) are fed into a Degradation-Aware Feature Enhancement encoder, where the ANF achieves uncertainty-aware feature stabilization, and the SPE performs structure-aware geometric completion. (Bottom) The Language-Guided Semantic Fusion and Prediction module fuses point features with text queries to output affordance masks.
+		</p>
+
+		<br>
+		<br>
+
+
+		<h2 style="text-align: left;">Real-World Cases</h2>
+		<div class="fig-grid">
+
+			<div class="case-col">
+				<img class="talk-img" src="figure/case2_talk.png" alt="Talk: adjustable wrench">
+				<video controls muted loop playsinline>
+					<source src="figure/case1.mp4" type="video/mp4">
+				</video>
+			</div>
+
+			<div class="case-col">
+				<img class="talk-img" src="figure/case1_talk.png" alt="Talk: ladle">
+				<video controls muted loop playsinline>
+					<source src="figure/case2.mp4" type="video/mp4">
+				</video>
+			</div>
+
+			<div class="case-col">
+				<video controls muted loop playsinline>
+					<source src="figure/case3.mp4" type="video/mp4">
+				</video>
+				<div class="fig-cell-caption">(a) Adjustable Wrench — Grasp.</div>
+			</div>
+
+			<div class="case-col">
+				<video controls muted loop playsinline>
+					<source src="figure/case4.mp4" type="video/mp4">
+				</video>
+				<div class="fig-cell-caption">(b) Ladle — Grasp.</div>
+			</div>
+
+		</div>
+		<p>
+			Given multi-view RGB images and natural language instructions, our framework reconstructs the 3D object point clouds and accurately predicts the target functional regions (highlighted in red). These results demonstrate the model's practical utility in identifying affordances, such as the ideal grasp spots for an adjustable wrench (a) and a ladle (b), even in the presence of reconstruction noise.
+		</p>
+
+		<br>
+		<br>
+
+
+		<h2 style="text-align: left;">Comparison on HANDAL Dataset</h2>
+		<div style="text-align: center;">
+			<img width=1000 src="figure/HANDAL.png" alt="Comparison on HANDAL Dataset">
+		</div>
+		<p class="handal-caption">
+			Comparison of affordance prediction performance (aIoU) on the HANDAL dataset. Best results are in <strong>bold</strong>. <strong>Geo. Req.</strong> denotes the original geometric input form designed for each method. <strong>Input Mod.</strong> represents the input modalities under each evaluation setting. Specifically, the upper and lower groups use reconstructed and native clean point clouds, respectively. See Section IV-B for category abbreviations.
+		</p>
+
+		<br>
+		<br>
+
+
+		<h2 style="text-align: left;">Qualitative Results</h2>
+		<div style="text-align: center;">
+			<img width=1000 src="figure/fig6.png" alt="Qualitative Results Fig. 6">
+		</div>
+		<p>
+			Qualitative robustness evaluation on the LASO-C dataset. For each degradation type, we compare the Ground Truth affordance mask (left) with our model's prediction (right), both highlighted in red.
+		</p>
+
+		<br>
+		<br>
+
+	</div>
+	<br>
+	<br>
+</body>
+</html>
