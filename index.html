@@ -226,8 +226,8 @@
     }
 
     /* ===== Qualitative Results Layout ===== */
-    .qual-table { width: 1000px; margin: 0 auto; }
-    .qual-row { display: flex; align-items: stretch; margin-bottom: 6px; }
+    .qual-table { width: 1100px; margin: 0 auto; }
+    .qual-row { display: flex; align-items: stretch; margin-bottom: 12px; }
     .qual-row-label {
         width: 36px; min-width: 36px;
         display: flex; align-items: center; justify-content: center;
@@ -238,12 +238,12 @@
         font-size: 12px; font-weight: bold; color: #333;
         white-space: nowrap; letter-spacing: 0.5px;
     }
-    .qual-pairs { display: flex; flex: 1; gap: 14px; }
-    .qual-pair { display: flex; flex: 1; gap: 3px; }
+    .qual-pairs { display: flex; flex: 1; gap: 28px; }
+    .qual-pair { display: flex; flex: 1; gap: 0px; }
     .qcell { flex: 1; display: flex; flex-direction: column; align-items: center; }
-    .qcell img { width: 100%; display: block; }
-    .qlbl-obj { color: #e67e22; font-weight: bold; font-size: 12.5px; text-align: center; margin-top: 3px; font-style: italic; }
-    .qlbl-act { color: #27ae60; font-weight: bold; font-size: 12.5px; text-align: center; margin-top: 3px; font-style: italic; }
+    .qcell img { width: 100%; display: block; min-height: 170px; object-fit: contain; }
+    .qlbl-obj { color: #e67e22; font-weight: bold; font-size: 13px; text-align: center; margin-top: 4px; font-style: italic; }
+    .qlbl-act { color: #27ae60; font-weight: bold; font-size: 13px; text-align: center; margin-top: 4px; font-style: italic; }
     .qual-bottom { display: flex; align-items: center; margin-top: 4px; }
     .qual-label-spacer { width: 44px; min-width: 44px; }
     .gt-ours-lbl { flex: 1; text-align: center; font-weight: bold; font-size: 13px; background: #ddd; border-radius: 4px; padding: 3px 0; color: #222; }
@@ -512,7 +512,28 @@
 		</div>
 
 		<p>
-			Qualitative robustness evaluation on the LASO-C dataset. For each degradation type, we compare the Ground Truth affordance mask (left) with our model's prediction (right), both highlighted in red.
+			Qualitative robustness evaluation on the LASO-C dataset. For each degradation type, we compare the Ground Truth affordance mask (left) with our model's prediction (right), both highlighted in <span style="color: red;">red</span>.
+		</p>
+
+		<br>
+		<br>
+
+
+		<h2 style="text-align: left;">Qualitative Ablation Results</h2>
+		<div style="text-align: center;">
+			<img width=1000 src="figure/ablation.png" alt="Qualitative Ablation Results">
+		</div>
+		<p>
+			Qualitative ablation results on the HANDAL dataset. <span style="color: red;">Red</span> indicates predicted affordance regions based on text queries, and <span style="color: gray;">gray</span> represents the background.
+		</p>
+
+		<br>
+		<br>
+
+
+		<h2 style="text-align: left;">Contacts</h2>
+		<p>
+			If you have any further enquiries, question, or comments, please contact <a href="mailto:ycliu0016@gmail.com">ycliu0016@gmail.com</a>.
 		</p>
 
 		<br>
