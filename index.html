@@ -224,6 +224,65 @@
         line-height: inherit;
         text-align: justify;
     }
+
+    /* ===== Qualitative Results Layout ===== */
+    .qual-table { width: 1000px; margin: 0 auto; }
+    .qual-row { display: flex; align-items: stretch; margin-bottom: 6px; }
+    .qual-row-label {
+        width: 36px; min-width: 36px;
+        display: flex; align-items: center; justify-content: center;
+        background: #e0e0e0; border-radius: 5px; margin-right: 8px;
+    }
+    .qual-row-label span {
+        writing-mode: vertical-rl; transform: rotate(180deg);
+        font-size: 12px; font-weight: bold; color: #333;
+        white-space: nowrap; letter-spacing: 0.5px;
+    }
+    .qual-pairs { display: flex; flex: 1; gap: 14px; }
+    .qual-pair { display: flex; flex: 1; gap: 3px; }
+    .qcell { flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .qcell img { width: 100%; display: block; }
+    .qlbl-obj { color: #e67e22; font-weight: bold; font-size: 12.5px; text-align: center; margin-top: 3px; font-style: italic; }
+    .qlbl-act { color: #27ae60; font-weight: bold; font-size: 12.5px; text-align: center; margin-top: 3px; font-style: italic; }
+    .qual-bottom { display: flex; align-items: center; margin-top: 4px; }
+    .qual-label-spacer { width: 44px; min-width: 44px; }
+    .gt-ours-lbl { flex: 1; text-align: center; font-weight: bold; font-size: 13px; background: #ddd; border-radius: 4px; padding: 3px 0; color: #222; }
+
+    /* (kept for compat) */
+    .gif-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 0;
+        width: 1000px;
+        margin: 0 auto;
+        background: #fff;
+    }
+    .gif-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4px 2px 6px;
+    }
+    .gif-cell img {
+        width: 100%;
+        display: block;
+    }
+    .gif-label-obj {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 13px;
+        text-align: center;
+        margin-top: 4px;
+        font-style: italic;
+    }
+    .gif-label-act {
+        color: #27ae60;
+        font-weight: bold;
+        font-size: 13px;
+        text-align: center;
+        margin-top: 4px;
+        font-style: italic;
+    }
 </style>
 
 <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
@@ -276,7 +335,7 @@
 		<br>
 
 
-		<h2 style="text-align: left;">Real-World Cases</h2>
+		<h2 style="text-align: left;">Self-Captured Real-World Demonstrations</h2>
 		<div class="fig-grid">
 
 			<div class="case-col">
@@ -329,9 +388,129 @@
 
 
 		<h2 style="text-align: left;">Qualitative Results</h2>
-		<div style="text-align: center;">
-			<img width=1000 src="figure/fig6.png" alt="Qualitative Results Fig. 6">
+
+		<div style="text-align: center; margin-bottom: 10px;">
+			<img src="figure/fig_up.png" style="width: 100%; max-width: 1000px;" alt="Which part of the obj allows for the most efficient aff-ing method?">
 		</div>
+
+		<div class="qual-table">
+
+			<!-- Row 1: Add Local -->
+			<div class="qual-row">
+				<div class="qual-row-label"><span>Add Local</span></div>
+				<div class="qual-pairs">
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/137_Vase_pour_GT.gif" alt="Vase Pour GT"><span class="qlbl-obj">&lt;Vase&gt;</span></div>
+						<div class="qcell"><img src="video/137_Vase_pour_Pred.gif" alt="Vase Pour Pred"><span class="qlbl-act">&lt;Pour&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/493_Scissors_cut_GT.gif" alt="Scissors Cut GT"><span class="qlbl-obj">&lt;Scissors&gt;</span></div>
+						<div class="qcell"><img src="video/493_Scissors_cut_Pred.gif" alt="Scissors Cut Pred"><span class="qlbl-act">&lt;Cut&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/2037_Table_move_GT.gif" alt="Table Move GT"><span class="qlbl-obj">&lt;Table&gt;</span></div>
+						<div class="qcell"><img src="video/2037_Table_move_Pred.gif" alt="Table Move Pred"><span class="qlbl-act">&lt;Move&gt;</span></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Row 2: Add Global -->
+			<div class="qual-row">
+				<div class="qual-row-label"><span>Add Global</span></div>
+				<div class="qual-pairs">
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/474_Faucet_grasp_GT.gif" alt="Faucet Grasp GT"><span class="qlbl-obj">&lt;Faucet&gt;</span></div>
+						<div class="qcell"><img src="video/474_Faucet_grasp_Pred.gif" alt="Faucet Grasp Pred"><span class="qlbl-act">&lt;Grasp&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/817_Chair_move_GT.gif" alt="Chair Move GT"><span class="qlbl-obj">&lt;Chair&gt;</span></div>
+						<div class="qcell"><img src="video/817_Chair_move_Pred.gif" alt="Chair Move Pred"><span class="qlbl-act">&lt;Move&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/1489_Bottle_open_GT.gif" alt="Bottle Open GT"><span class="qlbl-obj">&lt;Bottle&gt;</span></div>
+						<div class="qcell"><img src="video/1489_Bottle_open_Pred.gif" alt="Bottle Open Pred"><span class="qlbl-act">&lt;Open&gt;</span></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Row 3: Dropout Global -->
+			<div class="qual-row">
+				<div class="qual-row-label"><span>Dropout Global</span></div>
+				<div class="qual-pairs">
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/407_Faucet_open_GT.gif" alt="Faucet Open GT"><span class="qlbl-obj">&lt;Faucet&gt;</span></div>
+						<div class="qcell"><img src="video/407_Faucet_open_Pred.gif" alt="Faucet Open Pred"><span class="qlbl-act">&lt;Open&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/1512_Bottle_open_GT.gif" alt="Bottle Open GT"><span class="qlbl-obj">&lt;Bottle&gt;</span></div>
+						<div class="qcell"><img src="video/1512_Bottle_open_Pred.gif" alt="Bottle Open Pred"><span class="qlbl-act">&lt;Open&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/26_Door_pull_GT.gif" alt="Door Pull GT"><span class="qlbl-obj">&lt;Door&gt;</span></div>
+						<div class="qcell"><img src="video/26_Door_pull_Pred.gif" alt="Door Pull Pred"><span class="qlbl-act">&lt;Pull&gt;</span></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Row 4: Dropout Local -->
+			<div class="qual-row">
+				<div class="qual-row-label"><span>Dropout Local</span></div>
+				<div class="qual-pairs">
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/153_Vase_pour_GT.gif" alt="Vase Pour GT"><span class="qlbl-obj">&lt;Vase&gt;</span></div>
+						<div class="qcell"><img src="video/153_Vase_pour_Pred.gif" alt="Vase Pour Pred"><span class="qlbl-act">&lt;Pour&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/1090_Chair_sit_GT.gif" alt="Chair Sit GT"><span class="qlbl-obj">&lt;Chair&gt;</span></div>
+						<div class="qcell"><img src="video/1090_Chair_sit_Pred.gif" alt="Chair Sit Pred"><span class="qlbl-act">&lt;Sit&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/1795_Mug_grasp_GT.gif" alt="Mug Grasp GT"><span class="qlbl-obj">&lt;Mug&gt;</span></div>
+						<div class="qcell"><img src="video/1795_Mug_grasp_Pred.gif" alt="Mug Grasp Pred"><span class="qlbl-act">&lt;Grasp&gt;</span></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Row 5: Jitter -->
+			<div class="qual-row">
+				<div class="qual-row-label"><span>Jitter</span></div>
+				<div class="qual-pairs">
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/93_Earphone_grasp_GT.gif" alt="Earphone Grasp GT"><span class="qlbl-obj">&lt;Earphone&gt;</span></div>
+						<div class="qcell"><img src="video/93_Earphone_grasp_Pred.gif" alt="Earphone Grasp Pred"><span class="qlbl-act">&lt;Grasp&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/145_Vase_wrap_grasp_GT.gif" alt="Vase Wrap GT"><span class="qlbl-obj">&lt;Vase&gt;</span></div>
+						<div class="qcell"><img src="video/145_Vase_wrap_grasp_Pred.gif" alt="Vase Wrap Pred"><span class="qlbl-act">&lt;Wrap&gt;</span></div>
+					</div>
+					<div class="qual-pair">
+						<div class="qcell"><img src="video/1068_Chair_move_GT.gif" alt="Chair Move GT"><span class="qlbl-obj">&lt;Chair&gt;</span></div>
+						<div class="qcell"><img src="video/1068_Chair_move_Pred.gif" alt="Chair Move Pred"><span class="qlbl-act">&lt;Move&gt;</span></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 底部 GT / Ours 标签 -->
+			<div class="qual-bottom">
+				<div class="qual-label-spacer"></div>
+				<div class="qual-pairs">
+					<div class="qual-pair">
+						<div class="gt-ours-lbl">GT</div>
+						<div class="gt-ours-lbl">Ours</div>
+					</div>
+					<div class="qual-pair">
+						<div class="gt-ours-lbl">GT</div>
+						<div class="gt-ours-lbl">Ours</div>
+					</div>
+					<div class="qual-pair">
+						<div class="gt-ours-lbl">GT</div>
+						<div class="gt-ours-lbl">Ours</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
 		<p>
 			Qualitative robustness evaluation on the LASO-C dataset. For each degradation type, we compare the Ground Truth affordance mask (left) with our model's prediction (right), both highlighted in red.
 		</p>
