@@ -1,0 +1,10 @@
+﻿.idea/
+figure/
+版本1/
+点云/
+新建文件夹/
+doc/
+*.exe
+*.zip
+*.py
+*.html
